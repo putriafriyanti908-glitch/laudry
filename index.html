@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaundryKu - Aplikasi Manajemen Laundry</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="app-header">
+        <h1>🧺 LaundryKu</h1>
+        <p>Kelola pesanan laundry dengan mudah dan cepat!</p>
+    </header>
+
+    <main class="app-main">
+
+        <!-- FORM TAMBAH DAN EDIT -->
+        <section class="card form-card">
+
+            <h2 id="judul-form">✏️ Tambah Pesanan Baru</h2>
+
+            <form id="form-laundry">
+
+                <input type="hidden" id="edit-id">
+
+                <div class="form-group">
+                    <label for="nama-pelanggan">
+                        Nama Pelanggan:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama-pelanggan"
+                        placeholder="Contoh: Budi Santoso"
+                        maxlength="100"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="berat-kg">
+                        Berat Cucian (kg):
+                    </label>
+
+                    <input
+                        type="number"
+                        id="berat-kg"
+                        placeholder="Contoh: 3"
+                        min="1"
+                        step="0.1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="status-cuci">
+                        Status:
+                    </label>
+
+                    <select id="status-cuci">
+                        <option value="Antri">🕐 Antri</option>
+                        <option value="Proses">⚙️ Proses</option>
+                        <option value="Selesai">✅ Selesai</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="btn-simpan"
+                    >
+                        + Tambah Pesanan
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="btn-batal"
+                    >
+                        Batal
+                    </button>
+
+                </div>
+
+            </form>
+        </section>
+
+        <!-- STATISTIK -->
+        <section class="stats-grid">
+
+            <div class="stat-card stat-total">
+                <span class="stat-angka" id="total-pesanan">0</span>
+                <span class="stat-label">Total Pesanan</span>
+            </div>
+
+            <div class="stat-card stat-antri">
+                <span class="stat-angka" id="total-antri">0</span>
+                <span class="stat-label">🕐 Antri</span>
+            </div>
+
+            <div class="stat-card stat-proses">
+                <span class="stat-angka" id="total-proses">0</span>
+                <span class="stat-label">⚙️ Diproses</span>
+            </div>
+
+            <div class="stat-card stat-selesai">
+                <span class="stat-angka" id="total-selesai">0</span>
+                <span class="stat-label">✅ Selesai</span>
+            </div>
+
+        </section>
+
+        <!-- DAFTAR PESANAN -->
+        <section class="card table-card">
+
+            <div class="table-header">
+
+                <h2>📋 Daftar Pesanan</h2>
+
+                <button
+                    type="button"
+                    class="btn btn-danger-outline"
+                    id="btn-hapus-semua"
+                >
+                    🗑️ Hapus Semua
+                </button>
+
+            </div>
+
+            <div id="wadah-pesanan">
+
+                <div class="empty-state">
+                    <p>📭 Belum ada pesanan. Tambahkan pesanan pertama di atas!</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
